@@ -7,7 +7,7 @@ import axiosInstance from '../utils/axiosInstance';
 import { API_PATH } from '../utils/apiPath';
 import { ResumeSummaryCard } from '../components/Cards';
 import toast from 'react-hot-toast';
-import moment from 'moment';
+import { isNewResume } from '../utils/helper';
 import Modal from '../components/Modal';
 import CreateResumeForm from '../components/CreateResumeForm';
 
@@ -114,7 +114,7 @@ const Dashboard = () => {
       toast.error('Failed to delete resume');
     } finally {
       setResumeToDelete(null);
-      setShowDeleteConfirm(false); // ✅ FIXED HERE
+      setShowDeleteConfirm(false);
     }
   };
 
@@ -190,7 +190,7 @@ const Dashboard = () => {
                 onDelete={() => handleDeleteClick(resume._id)}
                 completion={resume.completion || 0}
                 isPremium={resume.isPremium}
-                isNew={moment().diff(moment(resume.createdAt), 'days') <= 7}
+                isNew={isNewResume(resume.createdAt)}
               />
             ))}
           </div>

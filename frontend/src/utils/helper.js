@@ -1,6 +1,25 @@
 // src/utils/helper.js
 import html2canvas from "html2canvas";
-import moment from "moment"
+
+export function formatYearMonth(dateString) {
+  if (!dateString) return "";
+  const date = new Date(dateString);
+  return date.toLocaleDateString("en-US", {
+    month: "short",
+    year: "numeric",
+  });
+}
+
+export const isNewResume = (createdAt) => {
+  if (!createdAt) return false;
+  const createdDate = new Date(createdAt);
+  const now = new Date();
+  const diffTime = now - createdDate;
+  const diffDays = diffTime / (1000 * 60 * 60 * 24);
+  return diffDays <= 7;
+};
+
+
 
 /**
  * Validate email format.
@@ -98,9 +117,7 @@ export const getLightColorFromImage = (imageUrl) => {
 /**
  * Format "YYYY-MM" → "MMM YYYY" (e.g. "2025-03" → "Mar 2025").
  */
-export function formatYearMonth(yearMonth) {
-  return yearMonth ? moment(yearMonth, "YYYY-MM").format("MMM YYYY") : ""
-}
+
 
 /**
  * Recursively replace any computed 'oklch(...)' in color, backgroundColor,
