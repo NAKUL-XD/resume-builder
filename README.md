@@ -87,7 +87,7 @@ npm run dev
 
 | Dashboard | Resume Template | Mobile View |
 |----------|----------------|-------------|
-| ![Dashboard](https://user-images.githubusercontent.com/your-username/dashboard.png) | ![Template](https://user-images.githubusercontent.com/your-username/template.png) | ![Mobile](https://user-images.githubusercontent.com/your-username/mobile.png) |
+| ![Dashboard](./image.png) | ![Template](https://user-images.githubusercontent.com/your-username/template.png) | ![Mobile](https://user-images.githubusercontent.com/your-username/mobile.png) |
 
 ---
 
